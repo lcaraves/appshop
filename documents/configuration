@@ -1,0 +1,26 @@
+#######################################
+			SSH
+
+ssh root@68.183.20.159
+
+#######################################
+Droplet Name: app-shop
+IP Address: 68.183.20.159
+Username: root
+Password: ce3a9cf10209610e1cd0c8f8d6
+
+new password: lcaraves
+
+#######################################
+
+sudo nano /root/.digitalocean_password
+
+mysql_secure_installation
+
+root_mysql_pass="9ace65c4f5b46edcdde6374c661b79499dcb39e4a5b65305"
+sudo a2enmod rewrite
+sudo apt-get install phpmyadmin
+
+sudo nano /etc/apache2/apache2.conf
+
+Include /etc/phpmyadmin/apache.conf
