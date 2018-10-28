@@ -17,6 +17,9 @@ sudo nano /root/.digitalocean_password
 
 mysql_secure_installation
 
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'a123456.';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
+
 root_mysql_pass="9ace65c4f5b46edcdde6374c661b79499dcb39e4a5b65305"
 sudo a2enmod rewrite
 sudo apt-get install phpmyadmin
@@ -24,3 +27,15 @@ sudo apt-get install phpmyadmin
 sudo nano /etc/apache2/apache2.conf
 
 Include /etc/phpmyadmin/apache.conf
+
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+cd /var/www/
+
+git clone ..
+
+composer install
+
+sudo chown -R www-data: storage
+sudo chmod -R 755 storage
